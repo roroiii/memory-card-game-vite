@@ -2,6 +2,18 @@ import { useState, useEffect, useCallback } from 'react';
 import useTimer from './useTimer';
 import useHistory from './useHistory';
 
+interface IIsCoveredCard {
+  openCards: number[];
+  matchedCards: number[];
+  index: number;
+}
+
+interface IIsStartTheGame {
+  openCards: number[];
+  matchedCards: number[];
+  timeElapsed: number;
+}
+
 function generateCards() {
   const cardContents = [...Array(8).keys()].concat([...Array(8).keys()]); // 產生一組0到7的數字，然後將其複製並合併
   const shuffledCards = cardContents.sort(() => Math.random() - 0.5); // 隨機洗牌排列卡片
@@ -9,6 +21,15 @@ function generateCards() {
   return shuffledCards.map((content, index) => {
     return { id: index, content };
   });
+}
+
+// [Book] 重構：改善既有程式的設計 https://pjchender.dev/software-development/book-refactor/
+function isCoveredCard({ openCards, matchedCards, index }: IIsCoveredCard): boolean {
+  return openCards.length < 2 && !matchedCards.includes(index) && !openCards.includes(index);
+}
+
+function isStartTheGame({ openCards, matchedCards, timeElapsed }: IIsStartTheGame): boolean {
+  return openCards.length === 0 && matchedCards.length === 0 && timeElapsed === 0;
 }
 
 export default function useGame() {
@@ -37,10 +58,10 @@ export default function useGame() {
   };
 
   const handleClickOpen = (index: number) => {
-    if (openCards.length < 2 && !matchedCards.includes(index) && !openCards.includes(index)) {
+    if (isCoveredCard({ openCards, matchedCards, index })) {
       setOpenCards((prev) => [...prev, index]);
 
-      if (openCards.length === 0 && matchedCards.length === 0 && timeElapsed === 0) {
+      if (isStartTheGame({ openCards, matchedCards, timeElapsed })) {
         handleStartTimer();
       }
     }

@@ -1,11 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-
-interface TimerHook {
-  timeElapsed: number;
-  handleStartTimer: () => void;
-  handleEndTimer: () => void;
-  handleCleanTimer: () => void;
-}
+import { TimerHook } from './types';
 
 export default function useTimer(): TimerHook {
   const [timeElapsed, setTimeElapsed] = useState<number>(0);

@@ -1,13 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
+import { HistoryHook } from './types';
 
-export default function useHistory() {
+export default function useHistory(): HistoryHook {
   const [gameHistory, setGameHistory] = useState<{ player: string; time: number }[]>(() => {
     const storedHistory = localStorage.getItem('gameHistory');
     return storedHistory ? JSON.parse(storedHistory) : [];
   });
 
   const handleAddHistory = useCallback((player: string, time: number) => {
-    const newRecord = { player, time }; // 新增這一行
+    const newRecord = { player, time };
     setGameHistory((prev) => {
       const updatedHistory = [...prev, newRecord];
       localStorage.setItem('gameHistory', JSON.stringify(updatedHistory));
@@ -21,12 +22,6 @@ export default function useHistory() {
       setGameHistory(JSON.parse(storedHistory));
     }
   }, []);
-
-  useEffect(() => {
-    if (gameHistory.length > 0) {
-      localStorage.setItem('gameHistory', JSON.stringify(gameHistory));
-    }
-  }, [gameHistory]);
 
   return {
     gameHistory,

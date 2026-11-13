@@ -1,7 +1,7 @@
 # Memory Card Game
 
 A memory card game created using Vite React.
-Project: [DEMO](https://memory-card-game-ya.vercel.app)
+Project: [DEMO](https://roroiii.github.io/memory-card-game-vite/)
 
 <img src="./public/pic.png" width="500">
 
@@ -22,11 +22,19 @@ Clone the project to your local.
 `yarn`
 `yarn dev`
 
+### GitHub Pages Deployment
+
+This project is deployed using GitHub Pages.
+
+1. Push changes to `main`
+2. GitHub Actions workflow at `.github/workflows/static.yml` will install dependencies and run `yarn build`
+3. The built static site in `dist/` is published to GitHub Pages automatically
+
 
 # 記憶卡牌小遊戲
 
 使用 Vite React 製作的記憶卡牌小遊戲。
-專案： [DEMO](https://memory-card-game-116e7.web.app)
+專案： [DEMO](https://roroiii.github.io/memory-card-game-vite/)
 
 <img src="./public/pic.png" width="500">
 
@@ -47,3 +55,11 @@ clone 專案至本地端
 
 `yarn`
 `yarn dev`
+
+### GitHub Pages 部署
+
+本專案改用 GitHub Pages 部署：
+
+1. 將程式碼 push 到 `main`
+2. GitHub Actions（`.github/workflows/static.yml`）會自動安裝相依套件並執行 `yarn build`
+3. 將 `dist/` 靜態檔自動發佈到 GitHub Pages

@@ -1,6 +1,31 @@
+# Memory Card Game
+
+A memory card game created using Vite React.
+Project: [DEMO](https://memory-card-game-ya.vercel.app)
+
+<img src="./public/pic.png" width="500">
+
+This is a small game called "Memory Card Game." In the game, cards are shuffled and randomly arranged on the screen. Players need to click on two cards to see if they match. If the two cards match, they will remain flipped open; if not, the cards will flip back to their original state. The goal of the game is to find all matching card pairs in the shortest time possible.
+
+### User Story
+
+1. As a user, I want to be able to automatically flip cards.
+2. As a user, I want to be able to click on two cards to see if they match. If they match, the cards should remain flipped; if they don't match, the cards should flip back to their original state.
+3. As a user, I want to have a "Play Again" button after completing the game.
+
+ϵ( 'Θ' )϶
+
+### Deploy
+
+Clone the project to your local.
+
+`yarn`
+`yarn dev`
+
+
 # 記憶卡牌小遊戲
 
-使用 Create React App 製作的記憶卡牌小遊戲。
+使用 Vite React 製作的記憶卡牌小遊戲。
 專案： [DEMO](https://memory-card-game-116e7.web.app)
 
 <img src="./public/pic.png" width="500">
